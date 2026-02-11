@@ -14,6 +14,7 @@
       "blocks": {
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Shop All OLM Products",
             "heading_size": "h0"
@@ -21,6 +22,7 @@
         },
         "text": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Check Them Out Here!",
             "text_style": "body"
@@ -44,16 +46,19 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/olm-headlight-ftspeed-homepage-banner-1715x450.jpg",
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/Listen_up..._1.png",
+        "mobile_image": "shopify://shop_images/Slide-1.jpg",
+        "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "bottom-left",
-        "desktop_content_alignment": "left",
+        "desktop_content_alignment": "center",
+        "banner_link": "shopify://collections/olm-main-promo-collection",
+        "banner_clickable": true,
         "show_text_box": false,
         "color_scheme": "scheme-0115fe1b-3a26-4dff-a589-da23c32b49aa",
         "stack_images_on_mobile": false,
-        "mobile_content_alignment": "left",
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
@@ -307,6 +312,8 @@
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
+        "banner_link": "",
+        "banner_clickable": false,
         "show_text_box": false,
         "color_scheme": "",
         "stack_images_on_mobile": true,

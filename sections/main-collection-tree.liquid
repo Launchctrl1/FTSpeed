@@ -1,5 +1,23 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {{ 'component-collection-tree.css' | asset_url | stylesheet_tag }}
+<style>
+  .collection-tree__placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem auto;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  .collection-tree__placeholder span {
+    padding: 0 0.5rem;
+    line-height: 1.2;
+  }
+</style>
 
 {%- style -%}
   @media screen and (max-width: 749px) {
@@ -10,39 +28,73 @@
 {%- endstyle -%}
 
 <div class="page-width">
-  {%- assign collection_tree_value = shop.metafields.collection_tree.collection_tree.value -%}
-  {%- assign nodes = collection_tree_value.nodes -%}
-  {%- assign collection_id = collection.id | append: '' -%}
+{%- assign collection_tree_value = shop.metafields.custom.collection_tree_v2.value -%}
+{%- assign nodes = collection_tree_value.nodes -%}
 
-  {%- if collection_tree_value.parentChildren[collection_id] -%}
+{%- liquid
+  assign target_handle = collection.handle
+  if current_tags.size > 0
+    assign target_handle = current_tags.first
+  else
+    assign path_segments = request.path | split: '/'
+    if path_segments.size > 3 and path_segments[1] == 'collections'
+      assign candidate = path_segments[3]
+      if candidate != blank
+        assign target_handle = candidate
+      endif
+    endif
+  endif
+
+  assign resolved_collection_id = ''
+  for node_id in nodes
+    assign node = nodes[node_id]
+    if node.h == target_handle
+      assign resolved_collection_id = node_id
+      break
+    endif
+  endfor
+
+  if resolved_collection_id == ''
+    assign resolved_collection_id = collection.id | append: ''
+  endif
+-%}
+
+  <!-- debug: collection.handle={{ collection.handle }}, current_tags={{ current_tags | join: ',' }}, target_handle={{ target_handle }}, resolved_collection_id={{ resolved_collection_id }} -->
+
+  {%- if collection_tree_value.parentChildren[resolved_collection_id] -%}
     <h3 class="collection-tree__title center">
       {{ 'sections.collection_template.shop_upgrades_by_category' | t: collection_title: collection.title }}
     </h3>
   {%- endif -%}
 
   <div class="collection-tree__parent">
-    {% assign subcollections_ids = collection_tree_value.parentChildren[collection_id] %}
+    {% assign subcollections_ids = collection_tree_value.parentChildren[resolved_collection_id] %}
     {%- for id in subcollections_ids -%}
       {%- assign subcollection_id = id | append: '' -%}
       {%- assign subcollection = nodes[subcollection_id] -%}
       <div class="collection-tree__child center">
-        {%- if subcollection.i -%}
+        {%- capture image_url -%}{{ subcollection.i | strip }}{%- endcapture -%}
+        {%- if image_url != '' -%}
           <a
-            href="{{ routes.collections_url }}/{{ collection.handle }}/{{ subcollection.h }}"
+            href="{{ routes.collections_url }}/{{ subcollection.h }}"
             class="full-unstyled-link font-body-bold"
           >
             <img
-              src="{{ subcollection.i }}"
+              src="{{ image_url }}"
               alt="{{ subcollection.t | escape }} image"
               class="motion-reduce"
               width="120"
               height="120"
             >
           </a>
+        {%- else -%}
+          <div class="collection-tree__placeholder">
+            <span>{{ subcollection.t }}</span>
+          </div>
         {%- endif -%}
         {%- unless collection_tree_value.parentChildren[subcollection_id] -%}
           <a
-            href="{{ routes.collections_url }}/{{ collection.handle }}/{{ subcollection.h }}"
+            href="{{ routes.collections_url }}/{{ subcollection.h }}"
             class="full-unstyled-link font-body-bold"
           >
             {{- subcollection.t -}}
@@ -56,7 +108,7 @@
             {%- for child_id in collection_tree_value.parentChildren[subcollection_id] limit: 5 -%}
               {%- assign child_collection = nodes[child_id] -%}
               <a
-                href="{{ routes.collections_url }}/{{ collection.handle }}/{{ subcollection.h }}/{{ child_collection.h }}"
+                href="{{ routes.collections_url }}/{{ child_collection.h }}"
                 class="full-unstyled-link"
               >
                 {{- child_collection.t -}}
@@ -64,7 +116,7 @@
             {%- endfor -%}
           </div>
           <a
-            href="{{ routes.collections_url }}/{{ collection.handle }}/{{ subcollection.h }}"
+            href="{{ routes.collections_url }}/{{ subcollection.h }}"
             class="full-unstyled-link font-body-bold"
             >Shop All</a
           >

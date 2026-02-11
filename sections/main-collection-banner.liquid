@@ -49,29 +49,59 @@
     opacity: 0.7;
   }
 
-  .collection__tags {
-    padding-top: 2rem;
+
+
+  .collection-breadcrumb {
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .collection-breadcrumb__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .collection-breadcrumb__item {
+    display: flex;
+    align-items: center;
+    color: rgb(var(--color-foreground));
+  }
+
+  .collection-breadcrumb__item a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .collection-breadcrumb__item a:hover {
+    text-decoration: underline;
+  }
+
+  .collection-breadcrumb__separator {
+    color: rgba(var(--color-foreground), 0.6);
   }
 {%- endstyle -%}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection__tags page-width" style="white-space: nowrap;">
-    {%- assign level_1_collection = collection.metafields.custom.level_1.value -%}
-    {%- assign level_2_collection = collection.metafields.custom.level_2.value -%}
-    <div class="breadcrumbs">
-      <a href="/collections" class="full-unstyled-link">Collections</a> /
-      {%- if level_1_collection != blank -%}
-        <a href="{{ level_1_collection.url }}" class="full-unstyled-link">{{ level_1_collection.title }}</a> /
-      {%- endif -%}
-      {%- if level_2_collection != blank -%}
-        <a href="{{ level_2_collection.url }}" class="full-unstyled-link">{{ level_2_collection.title }}</a> /
-      {%- endif -%}
-      <a href="{{ collection.url }}" class="full-unstyled-link">{{ collection.title }}</a>
-    </div>
-  </div>
+
 
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
+      <nav
+        class="collection-breadcrumb"
+        aria-label="Breadcrumb"
+        data-collection-breadcrumb
+        data-tree-url="{{ 'ft_tree_v2.json' | asset_url }}"
+        data-current-handle="{{ collection.handle }}"
+      >
+        <ol class="collection-breadcrumb__list" data-breadcrumb-list>
+          <li class="collection-breadcrumb__item">{{ collection.title }}</li>
+        </ol>
+      </nav>
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
@@ -118,6 +148,8 @@
     const description = document.getElementById('collection-description');
     const button = document.getElementById('read-more-btn');
 
+    if (!description || !button) return;
+
     if (description.classList.contains('truncated')) {
       description.classList.remove('truncated');
       button.textContent = '{{ section.settings.read_less_text | default: "Read less" }}';
@@ -125,6 +157,89 @@
       description.classList.add('truncated');
       button.textContent = '{{ section.settings.read_more_text | default: "Read more" }}';
     }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const breadcrumbEl = document.querySelector('[data-collection-breadcrumb]');
+    if (!breadcrumbEl) return;
+
+    const handle = breadcrumbEl.dataset.currentHandle;
+    const treeUrl = breadcrumbEl.dataset.treeUrl;
+    if (!handle || !treeUrl) return;
+
+    fetch(treeUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error('Failed to load category tree');
+        return response.json();
+      })
+      .then((tree) => {
+        const crumbs = buildBreadcrumbTrail(tree, handle);
+        if (crumbs.length) {
+          renderBreadcrumb(breadcrumbEl, crumbs);
+        }
+      })
+      .catch((error) => {
+        console.error('Breadcrumb error:', error);
+      });
+  });
+
+  function buildBreadcrumbTrail(tree, handle) {
+    if (!tree || !tree.handleIndex || !tree.nodes) return [];
+    const handleIndex = tree.handleIndex;
+    const nodes = tree.nodes;
+    const parentIndex = tree.parentIndex || {};
+
+    const startId = handleIndex[handle];
+    if (!startId) return [];
+
+    const trail = [];
+    let currentId = startId;
+    const visited = new Set();
+    const maxDepth = 30;
+
+    for (let i = 0; i < maxDepth && currentId && !visited.has(currentId); i += 1) {
+      visited.add(currentId);
+      const node = nodes[currentId];
+      if (!node) break;
+
+      trail.push({ handle: node.h, title: node.t });
+      const parents = parentIndex[currentId];
+      if (!parents || parents.length === 0) break;
+      currentId = parents[0];
+    }
+
+    return trail.reverse();
+  }
+
+  function renderBreadcrumb(container, crumbs) {
+    const list = container.querySelector('[data-breadcrumb-list]');
+    if (!list) return;
+
+    list.innerHTML = '';
+
+    crumbs.forEach((crumb, index) => {
+      if (index > 0) {
+        const separator = document.createElement('li');
+        separator.className = 'collection-breadcrumb__item collection-breadcrumb__separator';
+        separator.textContent = '>';
+        list.appendChild(separator);
+      }
+
+      const item = document.createElement('li');
+      item.className = 'collection-breadcrumb__item';
+
+      if (index === crumbs.length - 1) {
+        item.textContent = crumb.title;
+        item.setAttribute('aria-current', 'page');
+      } else {
+        const link = document.createElement('a');
+        link.href = `/collections/${crumb.handle}`;
+        link.textContent = crumb.title;
+        item.appendChild(link);
+      }
+
+      list.appendChild(item);
+    });
   }
 </script>
 
