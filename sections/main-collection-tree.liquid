@@ -88,9 +88,12 @@
             >
           </a>
         {%- else -%}
-          <div class="collection-tree__placeholder">
+          <a
+            href="{{ routes.collections_url }}/{{ subcollection.h }}"
+            class="collection-tree__placeholder full-unstyled-link"
+          >
             <span>{{ subcollection.t }}</span>
-          </div>
+          </a>
         {%- endif -%}
         {%- unless collection_tree_value.parentChildren[subcollection_id] -%}
           <a

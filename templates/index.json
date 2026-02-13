@@ -65,79 +65,88 @@
     "shop_by_categories_efE7JY": {
       "type": "shop-by-categories",
       "blocks": {
-        "category_cmMqEg": {
+        "category_intake": {
+          "type": "category",
+          "settings": {
+            "collection": "intake",
+            "featured_image": ""
+          }
+        },
+        "category_exhausts": {
+          "type": "category",
+          "settings": {
+            "collection": "exhausts",
+            "featured_image": ""
+          }
+        },
+        "category_turbo": {
+          "type": "category",
+          "settings": {
+            "collection": "turbochargers-and-superchargers",
+            "featured_image": ""
+          }
+        },
+        "category_engine": {
           "type": "category",
           "settings": {
             "collection": "engine",
             "featured_image": "shopify://shop_images/category_engine_belts_macro.png"
           }
         },
-        "category_mBaFDf": {
-          "type": "category",
-          "settings": {
-            "collection": "suspension",
-            "featured_image": "shopify://shop_images/suspension-ftspeed-shop-by-category-image-305x150-2.jpg"
-          }
-        },
-        "category_9Nyx33": {
-          "type": "category",
-          "settings": {
-            "collection": "brakes",
-            "featured_image": "shopify://shop_images/brakes-ftspeed-shop-by-category-image-305x150.jpg"
-          }
-        },
-        "category_t8Tp3j": {
+        "category_drivetrain": {
           "type": "category",
           "settings": {
             "collection": "drivetrain",
             "featured_image": "shopify://shop_images/drivetrain-ftspeed-shop-by-category-image-305x150-2.jpg"
           }
         },
-        "category_AzwPLU": {
+        "category_suspension": {
+          "type": "category",
+          "settings": {
+            "collection": "suspension-chassis",
+            "featured_image": "shopify://shop_images/suspension-ftspeed-shop-by-category-image-305x150-2.jpg"
+          }
+        },
+        "category_brakes": {
+          "type": "category",
+          "settings": {
+            "collection": "brakes",
+            "featured_image": "shopify://shop_images/brakes-ftspeed-shop-by-category-image-305x150.jpg"
+          }
+        },
+        "category_interior": {
           "type": "category",
           "settings": {
             "collection": "interior",
             "featured_image": "shopify://shop_images/category_interior_guages_black_macro.png"
           }
         },
-        "category_dpAgdi": {
+        "category_exterior": {
           "type": "category",
           "settings": {
             "collection": "exterior",
             "featured_image": "shopify://shop_images/exterior-ftspeed-shop-by-category-image-305x150-2.jpg"
           }
         },
-        "category_a6gwUD": {
+        "category_lighting": {
           "type": "category",
           "settings": {
-            "collection": "lifestyle",
-            "featured_image": "shopify://shop_images/category_lifestyle_rim_wash_closeup.png"
-          }
-        },
-        "category_kNJKDK": {
-          "type": "category",
-          "settings": {
-            "collection": "wheels-and-tires",
-            "featured_image": "shopify://shop_images/wheels-and-accessories-ftspeed-shop-by-category-image-305x150-2.jpg"
-          }
-        },
-        "category_ErhUfD": {
-          "type": "category",
-          "settings": {
-            "collection": ""
+            "collection": "lighting",
+            "featured_image": ""
           }
         }
       },
       "block_order": [
-        "category_cmMqEg",
-        "category_mBaFDf",
-        "category_9Nyx33",
-        "category_t8Tp3j",
-        "category_AzwPLU",
-        "category_dpAgdi",
-        "category_a6gwUD",
-        "category_kNJKDK",
-        "category_ErhUfD"
+        "category_intake",
+        "category_exhausts",
+        "category_turbo",
+        "category_engine",
+        "category_drivetrain",
+        "category_suspension",
+        "category_brakes",
+        "category_interior",
+        "category_exterior",
+        "category_lighting"
       ],
       "name": "Auto Parts Categories",
       "settings": {
