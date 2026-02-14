@@ -20,7 +20,7 @@
       }
     },
     "collection-tree": {
-      "type": "main-collection-tree",
+      "type": "subcategory-tree",
       "settings": {
         "link_primary_color": "#000000"
       }
