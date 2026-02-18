@@ -9,6 +9,44 @@
  */
 {
   "sections": {
+    "177129087605d70858": {
+      "type": "apps",
+      "blocks": {
+        "partfinder_year_make_model_vehicle_search_bar_7BqYcc": {
+          "type": "shopify://apps/partfinder-year-make-model/blocks/vehicle_search_bar/2892d2e7-0551-451a-8d78-8a0f565a5174",
+          "settings": {
+            "gv-enable-submodel": false,
+            "gv-disable-full-width-class": true,
+            "gv-disable-styles": false,
+            "gv-search-bar": "#121212",
+            "gv-search-color": "#ff0000",
+            "gv-search-text-color": "#ffffff",
+            "gv-clear-color": "#121212",
+            "gv-clear-text-color": "#ffffff",
+            "gv-search-label": "Search",
+            "gv-clear-label": "Clear",
+            "gv-show-title-label": true,
+            "gv-title-label": "SELECT YOUR VEHICLE",
+            "gv-title-bg": "#121212",
+            "gv-title-text": "#ffffff",
+            "gv-show-toggle-button": false,
+            "gv-toggle-button-label": "FIND YOUR VEHICLE",
+            "gv-toggle-button-bg": "#121212",
+            "gv-toggle-button-text": "#ffffff",
+            "gv-margin-top": 0,
+            "gv-margin-bottom": 0,
+            "gv-margin-left": 0,
+            "gv-margin-right": 0
+          }
+        }
+      },
+      "block_order": [
+        "partfinder_year_make_model_vehicle_search_bar_7BqYcc"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -68,22 +106,19 @@
         "category_intake": {
           "type": "category",
           "settings": {
-            "collection": "intake",
-            "featured_image": ""
+            "collection": "intake"
           }
         },
         "category_exhausts": {
           "type": "category",
           "settings": {
-            "collection": "exhausts",
-            "featured_image": ""
+            "collection": "exhausts"
           }
         },
         "category_turbo": {
           "type": "category",
           "settings": {
-            "collection": "turbochargers-and-superchargers",
-            "featured_image": ""
+            "collection": "turbochargers-and-superchargers"
           }
         },
         "category_engine": {
@@ -131,8 +166,7 @@
         "category_lighting": {
           "type": "category",
           "settings": {
-            "collection": "lighting",
-            "featured_image": ""
+            "collection": "lighting"
           }
         }
       },
@@ -361,6 +395,7 @@
     }
   },
   "order": [
+    "177129087605d70858",
     "image_banner",
     "shop_by_categories_efE7JY",
     "featured_collections_3z3GjU",
