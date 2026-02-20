@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "1771291138bcfe04a2": {
+    "177138642929566d00": {
       "type": "apps",
       "blocks": {
-        "partfinder_year_make_model_vehicle_search_bar_NcWRF7": {
+        "partfinder_year_make_model_vehicle_search_bar_XHEmW8": {
           "type": "shopify://apps/partfinder-year-make-model/blocks/vehicle_search_bar/2892d2e7-0551-451a-8d78-8a0f565a5174",
           "settings": {
             "gv-enable-submodel": false,
@@ -21,17 +21,17 @@
             "gv-search-bar": "#121212",
             "gv-search-color": "#ff0000",
             "gv-search-text-color": "#ffffff",
-            "gv-clear-color": "#000000",
+            "gv-clear-color": "#242833",
             "gv-clear-text-color": "#ffffff",
             "gv-search-label": "Search",
             "gv-clear-label": "Clear",
-            "gv-show-title-label": true,
+            "gv-show-title-label": false,
             "gv-title-label": "SELECT YOUR VEHICLE",
-            "gv-title-bg": "#000000",
+            "gv-title-bg": "#242833",
             "gv-title-text": "#ffffff",
             "gv-show-toggle-button": false,
             "gv-toggle-button-label": "FIND YOUR VEHICLE",
-            "gv-toggle-button-bg": "#000000",
+            "gv-toggle-button-bg": "#242833",
             "gv-toggle-button-text": "#ffffff",
             "gv-margin-top": 0,
             "gv-margin-bottom": 0,
@@ -41,7 +41,7 @@
         }
       },
       "block_order": [
-        "partfinder_year_make_model_vehicle_search_bar_NcWRF7"
+        "partfinder_year_make_model_vehicle_search_bar_XHEmW8"
       ],
       "settings": {
         "include_margins": false
@@ -70,10 +70,10 @@
         "columns_desktop": 3,
         "columns_mobile": "2",
         "color_scheme": "",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
         "enable_filtering": true,
@@ -85,7 +85,7 @@
     }
   },
   "order": [
-    "1771291138bcfe04a2",
+    "177138642929566d00",
     "banner",
     "collection-tree",
     "product-grid"

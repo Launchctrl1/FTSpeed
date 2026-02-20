@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "collection_tree": {
+      "type": "shop-by-categories",
+      "blocks": {
+        "category_intake": {
+          "type": "category",
+          "settings": {
+            "collection": "intake"
+          }
+        },
+        "category_exhausts": {
+          "type": "category",
+          "settings": {
+            "collection": "exhausts"
+          }
+        },
+        "category_turbo": {
+          "type": "category",
+          "settings": {
+            "collection": "turbochargers-and-superchargers"
+          }
+        },
+        "category_engine": {
+          "type": "category",
+          "settings": {
+            "collection": "engine",
+            "featured_image": "shopify://shop_images/category_engine_belts_macro.png"
+          }
+        },
+        "category_drivetrain": {
+          "type": "category",
+          "settings": {
+            "collection": "drivetrain",
+            "featured_image": "shopify://shop_images/drivetrain-ftspeed-shop-by-category-image-305x150-2.jpg"
+          }
+        },
+        "category_suspension": {
+          "type": "category",
+          "settings": {
+            "collection": "suspension-chassis",
+            "featured_image": "shopify://shop_images/suspension-ftspeed-shop-by-category-image-305x150-2.jpg"
+          }
+        },
+        "category_brakes": {
+          "type": "category",
+          "settings": {
+            "collection": "brakes",
+            "featured_image": "shopify://shop_images/brakes-ftspeed-shop-by-category-image-305x150.jpg"
+          }
+        },
+        "category_interior": {
+          "type": "category",
+          "settings": {
+            "collection": "interior",
+            "featured_image": "shopify://shop_images/category_interior_guages_black_macro.png"
+          }
+        },
+        "category_exterior": {
+          "type": "category",
+          "settings": {
+            "collection": "exterior",
+            "featured_image": "shopify://shop_images/exterior-ftspeed-shop-by-category-image-305x150-2.jpg"
+          }
+        },
+        "category_lighting": {
+          "type": "category",
+          "settings": {
+            "collection": "lighting"
+          }
+        }
+      },
+      "block_order": [
+        "category_intake",
+        "category_exhausts",
+        "category_turbo",
+        "category_engine",
+        "category_drivetrain",
+        "category_suspension",
+        "category_brakes",
+        "category_interior",
+        "category_exterior",
+        "category_lighting"
+      ],
+      "name": "Auto Parts Categories",
+      "settings": {
+        "section_title": "Shop by Category",
+        "background_color": "#f8f8f8",
+        "title_color": "#333333",
+        "category_title_color": "#333333",
+        "subcategory_color": "#292929",
+        "accent_color": "#007bff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_UXNtGr": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Your_paragraph_text.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "banner_link": "",
+        "banner_clickable": false,
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_UXNtGr",
+    "collection_tree"
+  ]
+}

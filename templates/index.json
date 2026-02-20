@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "177129087605d70858": {
+    "17713857168acdea2c": {
       "type": "apps",
       "blocks": {
-        "partfinder_year_make_model_vehicle_search_bar_7BqYcc": {
+        "partfinder_year_make_model_vehicle_search_bar_9xpxRD": {
           "type": "shopify://apps/partfinder-year-make-model/blocks/vehicle_search_bar/2892d2e7-0551-451a-8d78-8a0f565a5174",
           "settings": {
             "gv-enable-submodel": false,
@@ -21,17 +21,17 @@
             "gv-search-bar": "#121212",
             "gv-search-color": "#ff0000",
             "gv-search-text-color": "#ffffff",
-            "gv-clear-color": "#121212",
+            "gv-clear-color": "#242833",
             "gv-clear-text-color": "#ffffff",
             "gv-search-label": "Search",
             "gv-clear-label": "Clear",
-            "gv-show-title-label": true,
+            "gv-show-title-label": false,
             "gv-title-label": "SELECT YOUR VEHICLE",
-            "gv-title-bg": "#121212",
+            "gv-title-bg": "#242833",
             "gv-title-text": "#ffffff",
             "gv-show-toggle-button": false,
             "gv-toggle-button-label": "FIND YOUR VEHICLE",
-            "gv-toggle-button-bg": "#121212",
+            "gv-toggle-button-bg": "#242833",
             "gv-toggle-button-text": "#ffffff",
             "gv-margin-top": 0,
             "gv-margin-bottom": 0,
@@ -41,7 +41,7 @@
         }
       },
       "block_order": [
-        "partfinder_year_make_model_vehicle_search_bar_7BqYcc"
+        "partfinder_year_make_model_vehicle_search_bar_9xpxRD"
       ],
       "settings": {
         "include_margins": false
@@ -95,9 +95,9 @@
         "banner_clickable": true,
         "show_text_box": false,
         "color_scheme": "scheme-0115fe1b-3a26-4dff-a589-da23c32b49aa",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": true
       }
     },
     "shop_by_categories_efE7JY": {
@@ -395,7 +395,7 @@
     }
   },
   "order": [
-    "177129087605d70858",
+    "17713857168acdea2c",
     "image_banner",
     "shop_by_categories_efE7JY",
     "featured_collections_3z3GjU",

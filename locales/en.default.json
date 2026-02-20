@@ -123,7 +123,7 @@
       "inventory_in_stock_show_count": "{{ quantity }} in stock",
       "inventory_low_stock": "Low stock",
       "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
-      "inventory_out_of_stock": "Out of stock",
+      "inventory_out_of_stock": "Available to order",
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
       "on_sale": "Sale",
@@ -283,7 +283,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -343,7 +342,7 @@
       "empty": "No products found",
       "title": "Collection",
       "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>",
-      "shop_upgrades_by_category": "Shop {{ collection_title }} upgrades by Category",
+      "shop_upgrades_by_category": "Shop {{ collection_title }} upgrades by Category"
     },
     "video": {
       "load_video": "Load video: {{ description }}"
@@ -536,6 +535,20 @@
       "max_characters": "{{ max_chars }} characters max",
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "stock": {
+        "title": "Available to order"
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "out_of_stock": "Available to order"
+        }
+      }
     }
   }
 }
