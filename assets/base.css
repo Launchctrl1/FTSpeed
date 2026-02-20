@@ -143,7 +143,7 @@
 .page-width {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0 3.2rem;
+  padding: 0 1.6rem;
   max-width: var(--page-width);
 }
 
@@ -199,7 +199,7 @@
 }
 
 .custom-carousel-stock.out-of-stock {
-    color: #ef4444;
+    color: #2563eb;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
