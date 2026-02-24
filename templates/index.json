@@ -30,7 +30,7 @@
             "gv-title-bg": "#242833",
             "gv-title-text": "#ffffff",
             "gv-show-toggle-button": false,
-            "gv-toggle-button-label": "FIND YOUR VEHICLE",
+            "gv-toggle-button-label": "SELECT YOUR VEHICLE",
             "gv-toggle-button-bg": "#242833",
             "gv-toggle-button-text": "#ffffff",
             "gv-margin-top": 0,
@@ -69,7 +69,7 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop now!",
+            "button_label_1": "Shop OLM now!",
             "button_link_1": "shopify://collections/olm-main-promo-collection",
             "button_style_secondary_1": false,
             "button_label_2": "",
